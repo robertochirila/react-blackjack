@@ -1,8 +1,10 @@
 import { SHUFFLE_DECK } from "../actions/types";
 import { ADD_DECK } from "../actions/types";
 
+// import function that shuffles the deck and returns it
+
 const initialState = {
-  deck: [],
+  decks: [],
 };
 
 export default function (state = initialState, action) {
@@ -16,7 +18,7 @@ export default function (state = initialState, action) {
       console.log(action.payload);
       return {
         ...state,
-        deck: [...state.deck, action.payload],
+        decks: [...state.decks, action.payload],
       };
     default:
       return state;
