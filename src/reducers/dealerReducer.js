@@ -7,11 +7,12 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
+  //console.log(state.dealerScore);
   switch (action.type) {
     case INCREMENT_DEALER_SCORE:
       return {
         ...state,
-        dealerScore: action.payload,
+        dealerScore: state.dealerScore + action.payload,
       };
 
     default:

@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { Blackjack } from "./components/Blackjack";
+import Blackjack from "./components/Blackjack";
 import { Provider } from "react-redux";
 import store from "./store";
 

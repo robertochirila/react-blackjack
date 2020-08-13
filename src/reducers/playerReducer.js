@@ -1,26 +1,21 @@
-import { SHUFFLE_DECKS } from "../actions/types";
-import { ADD_DECK } from "../actions/types";
-import { shuffle } from "../utils/shuffle";
+import { INCREMENT_PLAYER_SCORE } from "../actions/types";
 
 // import function that shuffles the deck and returns it
 
 const initialState = {
-  decks: [],
+  playerScore: 0,
 };
 
 export default function (state = initialState, action) {
+  //console.log(state.playerScore);
+  //console.log(state.playerScore);
   switch (action.type) {
-    case SHUFFLE_DECKS:
-      shuffle(action.payload);
+    case INCREMENT_PLAYER_SCORE:
       return {
         ...state,
-        deck: action.payload,
+        playerScore: state.playerScore + action.payload,
       };
-    case ADD_DECK:
-      return {
-        ...state,
-        decks: [...state.decks, action.payload],
-      };
+
     default:
       return state;
   }

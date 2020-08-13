@@ -6,6 +6,7 @@ import { shuffle } from "../utils/shuffle";
 
 const initialState = {
   decks: [],
+  flag: true,
 };
 
 export default function (state = initialState, action) {
@@ -17,12 +18,12 @@ export default function (state = initialState, action) {
         deck: action.payload,
       };
     case ADD_DECK:
-      if (state.decks.length < 2) {
-        return {
-          ...state,
-          decks: [...state.decks, action.payload],
-        };
-      }
+      console.log(state.flag);
+      return {
+        ...state,
+        decks: [...state.decks, action.payload],
+        flag: !state.flag,
+      };
 
     default:
       return state;

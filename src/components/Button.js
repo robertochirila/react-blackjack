@@ -11,13 +11,10 @@ import { incrementDealerScore } from "../actions/incrementDealerScore";
 class Button extends Component {
   shuffleDeck = () => {
     const { decks, step } = this.props;
-    console.log(decks.length);
 
     this.props.shuffleDecks(decks);
 
     this.props.incrementStep();
-    this.props.incrementDealerScore();
-    this.props.incrementPlayerScore();
   };
   handleHit = () => {};
   handleStay = () => {};
@@ -45,13 +42,9 @@ class Button extends Component {
 const mapStateToProps = (state) => ({
   decks: state.deck.decks,
   step: state.step.step,
-  playerScore: state.player.playerReducer,
-  dealerScore: state.dealer.dealerReducer,
 });
 
 export default connect(mapStateToProps, {
   shuffleDecks,
   incrementStep,
-  incrementDealerScore,
-  incrementPlayerScore,
 })(Button);

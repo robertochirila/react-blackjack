@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 
 class Board extends Component {
   componentDidMount() {
+    console.count("counter");
     // HERE
   }
   render() {
@@ -19,8 +20,8 @@ class Board extends Component {
           {step === 0 ? (
             <React.Fragment>
               <Button type={"shuffle"} />
-              <Player type={"player"} />
-              <Player type={"dealer"} />
+              <Player type={"player"} key={0} />
+              <Player type={"dealer"} key={1} />
             </React.Fragment>
           ) : (
             <React.Fragment>
@@ -29,10 +30,10 @@ class Board extends Component {
               <div className="grid">
                 <div className="row">
                   <div className="col-2">
-                    <Player type={"player"} deck={decks[0]} />
+                    <Player type={"player"} deck={decks[0]} key={2} />
                   </div>
                   <div className="col-2">
-                    <Player type={"dealer"} deck={decks[1]} />
+                    <Player type={"dealer"} deck={decks[1]} key={3} />
                   </div>
                 </div>
               </div>
