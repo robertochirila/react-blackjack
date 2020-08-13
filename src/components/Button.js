@@ -39,6 +39,7 @@ class Button extends Component {
 
 const mapStateToProps = (state) => ({
   deck: state.deck.deck,
+  // here I need two arrays containing two deck objects
 });
 
 export default connect(mapStateToProps, { shuffleDeck })(Button);

@@ -1,7 +1,8 @@
 import { SHUFFLE_DECK } from "../actions/types";
+import { ADD_DECK } from "../actions/types";
 
 const initialState = {
-  step: 0,
+  deck: [],
 };
 
 export default function (state = initialState, action) {
@@ -10,6 +11,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         deck: action.payload,
+      };
+    case ADD_DECK:
+      console.log(action.payload);
+      return {
+        ...state,
+        deck: [...state.deck, action.payload],
       };
     default:
       return state;
