@@ -12,14 +12,11 @@ export default function (state = initialState, action) {
   switch (action.type) {
     case SHUFFLE_DECKS:
       shuffle(action.payload);
-      //const shuffledDecks = shuffle(action.payload);
-      //console.log(shuffledDecks);
       return {
         ...state,
         deck: action.payload,
       };
     case ADD_DECK:
-      //console.log(action.payload);
       return {
         ...state,
         decks: [...state.decks, action.payload],

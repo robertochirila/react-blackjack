@@ -7,23 +7,13 @@ import { incrementStep } from "../actions/incrementStep";
 // this component will be connected to the store and will dispatch actions to the store
 
 class Button extends Component {
-  componentDidMount() {
-    console.log("Button component rendered");
-    console.log(this.props);
-  }
   shuffleDeck = () => {
     const { decks, step } = this.props;
-    console.log("shuffle deck event");
     this.props.shuffleDecks(decks);
     this.props.incrementStep();
-    // dispatch the action
   };
-  handleHit = () => {
-    console.log("handle hit event");
-  };
-  handleStay = () => {
-    console.log("handle stay");
-  };
+  handleHit = () => {};
+  handleStay = () => {};
   render() {
     const { type } = this.props;
     return (
@@ -48,7 +38,6 @@ class Button extends Component {
 const mapStateToProps = (state) => ({
   decks: state.deck.decks,
   step: state.step.step,
-  // here I need two arrays containing two deck objects
 });
 
 export default connect(mapStateToProps, { shuffleDecks, incrementStep })(

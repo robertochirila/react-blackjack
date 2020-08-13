@@ -12,16 +12,6 @@ class Player extends Component {
       deck: [],
     };
   }
-  componentDidMount() {
-    const { decks, type } = this.props;
-    let deck;
-    if (type === "player") {
-      deck = decks[0];
-    } else if (type === "dealer") {
-      deck = decks[1];
-    }
-    console.log(deck);
-  }
   render() {
     const { type } = this.props;
     return (
@@ -38,7 +28,6 @@ class Player extends Component {
 
 const mapStateToProps = (state) => ({
   decks: state.deck.decks,
-  // here I need two arrays containing two deck objects
 });
 
 export default connect(mapStateToProps)(Player);

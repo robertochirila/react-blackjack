@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addDeck } from "../actions/addDeck";
 
-// this component will contain two arrays of card objects one for the player one for the dealer
-
 class Deck extends Component {
   constructor(props) {
     super(props);
@@ -47,7 +45,6 @@ class Deck extends Component {
     });
     this.setState({ deckOfCards: cards });
     this.props.addDeck(cards);
-    // dispatch action that adds the deck of card to an array
   }
   render() {
     return <div></div>;
