@@ -1,5 +1,6 @@
-import { SHUFFLE_DECK } from "../actions/types";
+import { SHUFFLE_DECKS } from "../actions/types";
 import { ADD_DECK } from "../actions/types";
+import { shuffle } from "../utils/shuffle";
 
 // import function that shuffles the deck and returns it
 
@@ -9,13 +10,16 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case SHUFFLE_DECK:
+    case SHUFFLE_DECKS:
+      shuffle(action.payload);
+      //const shuffledDecks = shuffle(action.payload);
+      //console.log(shuffledDecks);
       return {
         ...state,
         deck: action.payload,
       };
     case ADD_DECK:
-      console.log(action.payload);
+      //console.log(action.payload);
       return {
         ...state,
         decks: [...state.decks, action.payload],

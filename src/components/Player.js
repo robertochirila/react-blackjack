@@ -1,13 +1,26 @@
 import React, { Component } from "react";
 import Deck from "./Deck";
+import { connect } from "react-redux";
 
 // the component will receive props from the blackjack component either dealer or player
 // this will hold values regarding score and turn
 
-export class Player extends Component {
+class Player extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      deck: [],
+    };
+  }
   componentDidMount() {
-    console.log("Player component rendered");
-    console.log(this.props);
+    const { decks, type } = this.props;
+    let deck;
+    if (type === "player") {
+      deck = decks[0];
+    } else if (type === "dealer") {
+      deck = decks[1];
+    }
+    console.log(deck);
   }
   render() {
     const { type } = this.props;
@@ -23,4 +36,9 @@ export class Player extends Component {
   }
 }
 
-export default Player;
+const mapStateToProps = (state) => ({
+  decks: state.deck.decks,
+  // here I need two arrays containing two deck objects
+});
+
+export default connect(mapStateToProps)(Player);

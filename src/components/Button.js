@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { shuffleDeck } from "../actions/shuffleDeck";
+import { shuffleDecks } from "../actions/shuffleDecks";
+import { incrementStep } from "../actions/incrementStep";
 
 // the button component that receives props from the board component
 // this component will be connected to the store and will dispatch actions to the store
@@ -11,9 +12,10 @@ class Button extends Component {
     console.log(this.props);
   }
   shuffleDeck = () => {
-    const { decks } = this.props;
+    const { decks, step } = this.props;
     console.log("shuffle deck event");
-    this.props.shuffleDeck();
+    this.props.shuffleDecks(decks);
+    this.props.incrementStep();
     // dispatch the action
   };
   handleHit = () => {
@@ -29,7 +31,13 @@ class Button extends Component {
         <input
           type="button"
           value={type}
-          onClick={type === "shuffle" ? this.shuffleDeck : this.handleHit}
+          onClick={
+            type === "shuffle"
+              ? this.shuffleDeck
+              : this.handleHit || type === "stay"
+              ? this.handleStay
+              : null
+          }
           className="button"
         />
       </React.Fragment>
@@ -38,8 +46,11 @@ class Button extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  deck: state.deck.deck,
+  decks: state.deck.decks,
+  step: state.step.step,
   // here I need two arrays containing two deck objects
 });
 
-export default connect(mapStateToProps, { shuffleDeck })(Button);
+export default connect(mapStateToProps, { shuffleDecks, incrementStep })(
+  Button
+);
