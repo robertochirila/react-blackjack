@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { shuffleDeck } from "../actions/shuffleDeck";
 
 // the button component that receives props from the board component
 // this component will be connected to the store and will dispatch actions to the store
@@ -10,6 +12,8 @@ export class Button extends Component {
   }
   shuffleDeck = () => {
     console.log("shuffle deck event");
+    this.props.shuffleDeck();
+    // dispatch the action
   };
   handleHit = () => {
     console.log("handle hit event");
@@ -25,10 +29,15 @@ export class Button extends Component {
           type="button"
           value={type}
           onClick={type === "shuffle" ? this.shuffleDeck : this.handleHit}
+          className="button"
         />
       </React.Fragment>
     );
   }
 }
 
-export default Button;
+const mapStateToProps = (state) => ({
+  step: state.deck.step,
+});
+
+export default connect(mapStateToProps, { shuffleDeck })(Button);
