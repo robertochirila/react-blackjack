@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 // this component will contain two arrays of card objects one for the player one for the dealer
 
-export class Deck extends Component {
+class Deck extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,11 +44,15 @@ export class Deck extends Component {
         });
       });
     });
-    console.log(cards);
+    this.setState({ deckOfCards: cards });
   }
   render() {
     return <div></div>;
   }
 }
 
-export default Deck;
+const mapStateToProps = (state) => ({
+  deck: state.deck.deck,
+});
+
+export default connect(mapStateToProps)(Deck);

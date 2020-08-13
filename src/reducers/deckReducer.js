@@ -9,7 +9,7 @@ export default function (state = initialState, action) {
     case SHUFFLE_DECK:
       return {
         ...state,
-        step: action.payload,
+        deck: action.payload,
       };
     default:
       return state;

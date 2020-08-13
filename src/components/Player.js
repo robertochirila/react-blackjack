@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Deck } from "./Deck";
+import Deck from "./Deck";
 
 // the component will receive props from the blackjack component either dealer or player
 // this will hold values regarding score and turn

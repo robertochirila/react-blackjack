@@ -5,12 +5,13 @@ import { shuffleDeck } from "../actions/shuffleDeck";
 // the button component that receives props from the board component
 // this component will be connected to the store and will dispatch actions to the store
 
-export class Button extends Component {
+class Button extends Component {
   componentDidMount() {
     console.log("Button component rendered");
     console.log(this.props);
   }
   shuffleDeck = () => {
+    const { decks } = this.props;
     console.log("shuffle deck event");
     this.props.shuffleDeck();
     // dispatch the action
@@ -37,7 +38,7 @@ export class Button extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  step: state.deck.step,
+  deck: state.deck.deck,
 });
 
 export default connect(mapStateToProps, { shuffleDeck })(Button);

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Player } from "./Player";
-import { Button } from "./Button";
+import Button from "./Button";
 
 // when this component is mounted dispatch action to the reducer
 // to shuffle both decks of cards
