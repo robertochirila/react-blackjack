@@ -3,3 +3,12 @@
   min-height: 100vh;
   text-align: center;
 }
+
+.row {
+  width: 100%;
+}
+
+.col-2 {
+  width: 49.9%;
+  float: left;
+}

@@ -12,22 +12,30 @@ class Board extends Component {
     // HERE
   }
   render() {
-    const { step } = this.props;
+    const { step, decks } = this.props;
     return (
       <div className="wrapper">
         <div className="board">
           {step === 0 ? (
             <React.Fragment>
+              <Button type={"shuffle"} />
               <Player type={"player"} />
               <Player type={"dealer"} />
-              <Button type={"shuffle"} />
             </React.Fragment>
           ) : (
             <React.Fragment>
-              <Player type={"player"} />
-              <Player type={"dealer"} />
               <Button type={"hit"} />
               <Button type={"stay"} />
+              <div className="grid">
+                <div className="row">
+                  <div className="col-2">
+                    <Player type={"player"} deck={decks[0]} />
+                  </div>
+                  <div className="col-2">
+                    <Player type={"dealer"} deck={decks[1]} />
+                  </div>
+                </div>
+              </div>
             </React.Fragment>
           )}
         </div>
@@ -37,6 +45,7 @@ class Board extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  decks: state.deck.decks,
   step: state.step.step,
   // here I need two arrays containing two deck objects
 });

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import "./styles/Board.css";
 import "./styles/Button.css";
+import "./styles/Card.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 

@@ -6,20 +6,20 @@ import { connect } from "react-redux";
 // this will hold values regarding score and turn
 
 class Player extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      deck: [],
-    };
-  }
   render() {
-    const { type } = this.props;
+    const { type, deck } = this.props;
     return (
       <div>
         {type === "player" ? (
-          <Deck type={"player"} />
+          <React.Fragment>
+            <h3>{type}</h3>
+            <Deck type={"player"} deck={deck} />
+          </React.Fragment>
         ) : (
-          <Deck type={"dealer"} />
+          <React.Fragment>
+            <h3>{type}</h3>
+            <Deck type={"dealer"} deck={deck} />
+          </React.Fragment>
         )}
       </div>
     );

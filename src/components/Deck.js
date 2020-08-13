@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addDeck } from "../actions/addDeck";
+import Card from "./Card";
 
 class Deck extends Component {
   constructor(props) {
@@ -47,12 +48,30 @@ class Deck extends Component {
     this.props.addDeck(cards);
   }
   render() {
-    return <div></div>;
+    const { step, deck } = this.props;
+    let minIndex = 0;
+    if (step > 0) {
+      let maxIndex = deck.length - 1;
+      let firstNewCard =
+        Math.floor(Math.random() * (maxIndex - minIndex + 1)) + minIndex;
+      let secondNewCard =
+        Math.floor(Math.random() * (maxIndex - minIndex + 1)) + minIndex;
+      return (
+        <React.Fragment>
+          <Card index={firstNewCard} />
+          <Card index={secondNewCard} />
+        </React.Fragment>
+      );
+      console.log(firstNewCard, secondNewCard);
+    }
+
+    return <div>{step > 0 ? <div></div> : null}</div>;
   }
 }
 
 const mapStateToProps = (state) => ({
   decks: state.deck.decks,
+  step: state.step.step,
 });
 
 export default connect(mapStateToProps, { addDeck })(Deck);

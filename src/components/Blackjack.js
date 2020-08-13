@@ -8,14 +8,20 @@ export class Blackjack extends Component {
     super(props);
     this.state = {
       step: 0,
+      playerScore: 0,
+      dealerScore: 0,
     };
   }
 
   render() {
-    const { step } = this.state;
+    const { step, playerScore, dealerScore } = this.state;
     return (
       <div>
-        <Board step={step} />
+        <Board
+          step={step}
+          playerScore={playerScore}
+          dealerScore={dealerScore}
+        />
       </div>
     );
   }

@@ -17,10 +17,13 @@ export default function (state = initialState, action) {
         deck: action.payload,
       };
     case ADD_DECK:
-      return {
-        ...state,
-        decks: [...state.decks, action.payload],
-      };
+      if (state.decks.length < 2) {
+        return {
+          ...state,
+          decks: [...state.decks, action.payload],
+        };
+      }
+
     default:
       return state;
   }
