@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Deck from "./Deck";
+import PlayerDeck from "./PlayerDeck";
+import DealerDeck from "./DealerDeck";
 import { connect } from "react-redux";
 
 // the component will receive props from the blackjack component either dealer or player
@@ -9,18 +10,18 @@ class Player extends Component {
   render() {
     const { type, deck } = this.props;
 
-    //console.log(deck);
+    console.log(type);
     return (
       <div>
         {type === "player" ? (
           <React.Fragment>
             <h3>{type}</h3>
-            <Deck type={"player"} deck={deck} key={1} />
+            <PlayerDeck type={"player"} type={"player"} deck={deck} key={1} />
           </React.Fragment>
         ) : (
           <React.Fragment>
             <h3>{type}</h3>
-            <Deck type={"dealer"} deck={deck} key={2} />
+            <DealerDeck type={"dealer"} type={"dealer"} deck={deck} key={2} />
           </React.Fragment>
         )}
       </div>
@@ -29,7 +30,7 @@ class Player extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  decks: state.deck.decks,
+  deck: state.deck.deck,
 });
 
 export default connect(mapStateToProps)(Player);

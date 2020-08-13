@@ -77,7 +77,7 @@ class Deck extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  decks: state.deck.decks,
+  deck: state.deck.deck,
   step: state.step.step,
   flag: state.deck.flag,
 });

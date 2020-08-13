@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { shuffleDecks } from "../actions/shuffleDecks";
+import { shuffleDeck } from "../actions/shuffleDeck";
 import { incrementStep } from "../actions/incrementStep";
 import { incrementPlayerScore } from "../actions/incrementPlayerScore";
 import { incrementDealerScore } from "../actions/incrementDealerScore";
@@ -10,9 +10,9 @@ import { incrementDealerScore } from "../actions/incrementDealerScore";
 
 class Button extends Component {
   shuffleDeck = () => {
-    const { decks, step } = this.props;
+    const { deck, step } = this.props;
 
-    this.props.shuffleDecks(decks);
+    this.props.shuffleDeck(deck);
 
     this.props.incrementStep();
   };
@@ -40,11 +40,11 @@ class Button extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  decks: state.deck.decks,
+  deck: state.deck.deck,
   step: state.step.step,
 });
 
 export default connect(mapStateToProps, {
-  shuffleDecks,
+  shuffleDeck,
   incrementStep,
 })(Button);
