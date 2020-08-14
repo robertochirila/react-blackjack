@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { shuffleDeck } from "../actions/shuffleDeck";
 import { incrementStep } from "../actions/incrementStep";
-import hit from "../actions/hit";
-
-// the button component that receives props from the board component
-// this component will be connected to the store and will dispatch actions to the store
+import { turnPlayer } from "../actions/turnStep";
+import { turnDealer } from "../actions/turnStep";
 
 class Button extends Component {
   constructor(props) {
@@ -15,25 +13,23 @@ class Button extends Component {
     };
   }
   shuffleDeck = (event) => {
-    const { deck, step } = this.props;
+    const { deck } = this.props;
     if (event.target.value === "shuffle") {
       this.props.shuffleDeck(deck);
       this.props.incrementStep();
     }
   };
   handleHit = (event) => {
-    console.log("hereeeeeeeeee");
     if (event.target.value === "hit") {
       this.props.incrementStep();
+      this.props.turnPlayer();
     }
   };
   handleStay = (event) => {
-    console.log("hereeeeeeeeee");
     if (event.target.value === "stay") {
       this.setState({ disableButton: true });
+      this.props.turnDealer();
     }
-
-    //this.props.incrementStep();
   };
   render() {
     const { type, playerScore, dealerScore } = this.props;
@@ -76,9 +72,12 @@ const mapStateToProps = (state) => ({
   playerScore: state.player.playerScore,
   dealerScore: state.dealer.dealerScore,
   step: state.step.step,
+  turn: state.step.turn,
 });
 
 export default connect(mapStateToProps, {
   shuffleDeck,
   incrementStep,
+  turnPlayer,
+  turnDealer,
 })(Button);

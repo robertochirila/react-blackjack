@@ -39,14 +39,11 @@ class Blackjack extends Component {
       suits.map(function (suit, suitIndex) {
         ranks.map(function (rank, rankIndex) {
           let points = rankIndex < 10 ? rankIndex + 1 : 10;
-          //let backgroundX = -rankIndex * 79;
-          //let backgroundY = -suitIndex * 123;
           cards.push({
             id: 13 * suitIndex + rankIndex + 1,
             rank: rank,
             suit: suit,
             points: points,
-            //backgroundPosition: backgroundX + "px " + backgroundY + "px",
             isFaceUp: true,
           });
         });
@@ -58,7 +55,6 @@ class Blackjack extends Component {
 
   render() {
     const { step, playerScore, dealerScore } = this.props;
-    console.log(playerScore);
     return (
       <div>{playerScore < 22 ? <Board step={step} /> : <h2>You Lost</h2>}</div>
     );
@@ -71,7 +67,6 @@ const mapStateToProps = (state) => ({
   flag: state.deck.flag,
   playerScore: state.player.playerScore,
   dealerScore: state.dealer.dealerScore,
-  // here I need two arrays containing two deck objects
 });
 
 export default connect(mapStateToProps, { addDeck })(Blackjack);

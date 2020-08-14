@@ -8,16 +8,13 @@ import { connect } from "react-redux";
 
 class Player extends Component {
   render() {
-    const { type, deck, step } = this.props;
-
-    //console.log(type, step);
-    console.count("how many times is Player rendered");
+    const { type, deck, turn, playerScore, dealerScore } = this.props;
     return (
       <div>
         {type === "player" ? (
           <React.Fragment>
             <h3>{type}</h3>
-            <h4>{step}</h4>
+            <h3>{playerScore}</h3>
             <PlayerDeck
               type={"player"}
               type={"player"}
@@ -28,7 +25,13 @@ class Player extends Component {
         ) : (
           <React.Fragment>
             <h3>{type}</h3>
-            <DealerDeck type={"dealer"} type={"dealer"} deck={deck} />
+            <h3>{dealerScore}</h3>
+            <DealerDeck
+              type={"dealer"}
+              type={"dealer"}
+              deck={deck}
+              key={this.props.step}
+            />
           </React.Fragment>
         )}
       </div>
@@ -39,6 +42,9 @@ class Player extends Component {
 const mapStateToProps = (state) => ({
   deck: state.deck.deck,
   step: state.step.step,
+  turn: state.step.turn,
+  playerScore: state.player.playerScore,
+  dealerScore: state.dealer.dealerScore,
 });
 
 export default connect(mapStateToProps)(Player);

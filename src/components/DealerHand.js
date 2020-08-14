@@ -1,25 +1,26 @@
 import React, { Component } from "react";
 import Card from "./Card";
-import { addHand } from "../actions/addHand";
+import { addHandDealer } from "../actions/addHand";
 import { connect } from "react-redux";
+import { shuffleDeck } from "../actions/shuffleDeck";
 
-class Hand extends Component {
+class DealerHand extends Component {
   componentDidMount() {
     const { deckOfCards, step } = this.props;
     if (step === 1) {
       console.log(deckOfCards);
-      this.props.addHand(deckOfCards);
+      this.props.addHandDealer(deckOfCards);
     }
   }
   render() {
-    const { deckOfCards, step, hand } = this.props;
+    const { deckOfCards, step, dealerHand } = this.props;
     var renderCards;
     if (step === 1) {
       renderCards = deckOfCards.map((card, index) => {
         return <Card index={card.index} type={card.type} key={index} />;
       });
     } else if (step > 1) {
-      return hand.map((entries, index) => {
+      return dealerHand.map((entries, index) => {
         return entries.map((card, index) => {
           console.log(card);
           return <Card index={card.index} type={card.type} key={index} />;
@@ -35,7 +36,7 @@ const mapStateToProps = (state) => ({
   deck: state.deck.deck,
   step: state.step.step,
   flag: state.deck.flag,
-  hand: state.hand.hand,
+  dealerHand: state.dealerHand.dealerHand,
 });
 
-export default connect(mapStateToProps, { addHand })(Hand);
+export default connect(mapStateToProps, { addHandDealer })(DealerHand);

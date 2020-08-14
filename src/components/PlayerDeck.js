@@ -13,11 +13,8 @@ class PlayerDeck extends Component {
     }
   }
   render() {
-    const { deck, type, step, hand } = this.props;
+    const { deck, type, step, turn } = this.props;
     let minIndex = 0;
-    console.count("how many times Player Deck is rendered");
-    console.log(step);
-
     if (step === 1) {
       let maxIndex = deck.length - 1;
       let firstNewCardIndex =
@@ -29,21 +26,17 @@ class PlayerDeck extends Component {
       let deckOfCards = [];
       deckOfCards.push({ index: firstNewCardIndex, type: { type } });
       deckOfCards.push({ index: secondNewCardIndex, type: { type } });
-      console.log(deckOfCards);
       return (
         <div>
           <Hand deckOfCards={deckOfCards} />
         </div>
       );
-    } else if (step === 2) {
-      let { hand } = this.props;
+    } else if (step > 1 && turn === 0) {
       let maxIndex = deck.length - 1;
       let firstNewCardIndex =
         Math.floor(Math.random() * (maxIndex - minIndex + 1)) + minIndex;
       this.props.incrementPlayerScore(deck[firstNewCardIndex].points);
       let deckOfCards = [];
-      //deckOfCards.push(hand);
-      console.log(hand);
       deckOfCards.push({ index: firstNewCardIndex, type: { type } });
       this.props.addCardToHand(deckOfCards);
       return (
@@ -52,22 +45,6 @@ class PlayerDeck extends Component {
         </div>
       );
       // create new card and call action to update hand
-    } else if (step === 3) {
-      let { hand } = this.props;
-      let maxIndex = deck.length - 1;
-      let firstNewCardIndex =
-        Math.floor(Math.random() * (maxIndex - minIndex + 1)) + minIndex;
-      this.props.incrementPlayerScore(deck[firstNewCardIndex].points);
-      let deckOfCards = [];
-      //deckOfCards.push(hand);
-      console.log(hand);
-      deckOfCards.push({ index: firstNewCardIndex, type: { type } });
-      this.props.addCardToHand(deckOfCards);
-      return (
-        <div>
-          <Hand deckOfCards={deckOfCards} />
-        </div>
-      );
     }
     return <div>{step > 0 ? <div></div> : null}</div>;
   }
@@ -78,6 +55,7 @@ const mapStateToProps = (state) => ({
   hand: state.hand.hand,
   step: state.step.step,
   flag: state.deck.flag,
+  turn: state.step.turn,
 });
 
 export default connect(mapStateToProps, {
