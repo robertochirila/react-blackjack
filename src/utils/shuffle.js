@@ -1,8 +1,7 @@
-export function shuffle(decks) {
-  let firstDeck = decks[0];
-  let secondDeck = decks[1];
+export function shuffle(deck) {
+  let firstDeck = deck;
   let minIndex = 0;
-  let maxIndex = decks[0].length - 1;
+  let maxIndex = deck.length - 1;
   firstDeck.map(function (card, index) {
     let newIndex =
       Math.floor(Math.random() * (maxIndex - minIndex + 1)) + minIndex;
@@ -10,15 +9,6 @@ export function shuffle(decks) {
       let card = firstDeck[index];
       let swapCard = firstDeck[newIndex];
       swapArrayElements(firstDeck, index, newIndex);
-    }
-  });
-  secondDeck.map(function (card, index) {
-    let newIndex =
-      Math.floor(Math.random() * (maxIndex - minIndex + 1)) + minIndex;
-    if (index != newIndex) {
-      let card = secondDeck[index];
-      let swapCard = secondDeck[newIndex];
-      swapArrayElements(secondDeck, index, newIndex);
     }
   });
 }
