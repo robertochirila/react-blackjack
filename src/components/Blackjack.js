@@ -58,15 +58,9 @@ class Blackjack extends Component {
 
   render() {
     const { step, playerScore, dealerScore } = this.props;
-    //console.log(playerScore, dealerScore);
+    console.log(playerScore);
     return (
-      <div>
-        <Board
-          step={step}
-          //playerScore={playerScore}
-          //dealerScore={dealerScore}
-        />
-      </div>
+      <div>{playerScore < 22 ? <Board step={step} /> : <h2>You Lost</h2>}</div>
     );
   }
 }

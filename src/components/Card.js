@@ -9,7 +9,6 @@ class Card extends Component {
     var card, cardPoints, localDeck;
     //console.count("how many times");
     card = deck[index];
-    console.log(card);
     if (type === "player") {
       cardPoints = card.points;
       //this.props.incrementPlayerScore(cardPoints);

@@ -2,7 +2,6 @@ export function shuffle(deck) {
   let firstDeck = deck;
   let minIndex = 0;
   let maxIndex = deck.length - 1;
-  console.log(firstDeck);
   firstDeck.map(function (card, index) {
     let newIndex =
       Math.floor(Math.random() * (maxIndex - minIndex + 1)) + minIndex;
