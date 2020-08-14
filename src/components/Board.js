@@ -3,15 +3,7 @@ import Player from "./Player";
 import Button from "./Button";
 import { connect } from "react-redux";
 
-// when this component is mounted dispatch action to the reducer
-// to shuffle both decks of cards
-// render the button component with the correct props
-
 class Board extends Component {
-  componentDidMount() {
-    console.count("counter");
-    // HERE
-  }
   render() {
     const { step, deck } = this.props;
     return (
@@ -20,8 +12,6 @@ class Board extends Component {
           {step === 0 ? (
             <React.Fragment>
               <Button type={"shuffle"} />
-              {/*<Player type={"player"} key={0} />
-              <Player type={"dealer"} key={1} />*/}
             </React.Fragment>
           ) : (
             <React.Fragment>
