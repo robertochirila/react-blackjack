@@ -15,13 +15,11 @@ export default function (state = initialState, action) {
         step: state.step + 1,
       };
     case TURN_STEP_DEALER:
-      console.log("turn step dealer");
       return {
         ...state,
         turn: 1,
       };
     case TURN_STEP_PLAYER:
-      console.log("turn step player");
       return {
         ...state,
         turn: 0,

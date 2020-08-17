@@ -14,8 +14,6 @@ class Blackjack extends Component {
   }
   componentDidMount() {
     const { step, type, flag } = this.props;
-    //console.log(type, flag);
-    console.count("how many times");
 
     if (step === 0) {
       let cards = [];
