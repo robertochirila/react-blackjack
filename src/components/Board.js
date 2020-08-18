@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 class Board extends Component {
   render() {
-    const { step, deck } = this.props;
+    const { step, deck, winner } = this.props;
     return (
       <div className="wrapper">
         <div className="board">
@@ -27,6 +27,17 @@ class Board extends Component {
                   </div>
                 </div>
               </div>
+              {winner === "dealer" ? (
+                <div>
+                  <h1>You have lost, long live the dealer !</h1>
+                  <Button type="reset" />
+                </div>
+              ) : winner === "player" ? (
+                <div>
+                  <h1>Congratulations, you won !</h1>
+                  <Button type="reset" />
+                </div>
+              ) : null}
             </React.Fragment>
           )}
         </div>

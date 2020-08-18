@@ -1,5 +1,6 @@
 import { ADD_HAND_DEALER } from "../actions/types";
 import { ADD_CARD_DEALER } from "../actions/types";
+import { RESET_DEALER_HAND } from "../actions/types";
 
 const initialState = {
   dealerHand: [],
@@ -16,6 +17,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         dealerHand: [...state.dealerHand, action.payload],
+      };
+    case RESET_DEALER_HAND:
+      return {
+        ...state,
+        dealerHand: [],
       };
 
     default:
