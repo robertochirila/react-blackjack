@@ -8,7 +8,6 @@ class DealerHand extends Component {
   componentDidMount() {
     const { deckOfCards, step } = this.props;
     if (step === 1) {
-      console.log(deckOfCards);
       this.props.addHandDealer(deckOfCards);
     }
   }
@@ -22,7 +21,6 @@ class DealerHand extends Component {
     } else if (step > 1) {
       return dealerHand.map((entries, index) => {
         return entries.map((card, index) => {
-          console.log(card);
           return <Card index={card.index} type={card.type} key={index} />;
         });
       });

@@ -21,7 +21,6 @@ class Hand extends Component {
     } else if (step > 1) {
       return hand.map((entries, index) => {
         return entries.map((card, index) => {
-          console.log(card);
           return <Card index={card.index} type={card.type} key={index} />;
         });
       });

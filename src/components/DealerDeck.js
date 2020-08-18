@@ -39,6 +39,13 @@ class DealerDeck extends Component {
         </div>
       );
     }
+    if (turn === 0) {
+      return (
+        <div>
+          <DealerHand />
+        </div>
+      );
+    }
     return <div>{step > 0 ? <div></div> : null}</div>;
   }
 }

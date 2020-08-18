@@ -8,15 +8,12 @@ class Deck extends Component {
     const { step, deck, type } = this.props;
     let minIndex = 0;
     if (step > 0) {
-      console.log(type);
-
       if (type === "player") {
         let maxIndex = deck.length - 1;
         let firstNewCardIndex =
           Math.floor(Math.random() * (maxIndex - minIndex + 1)) + minIndex;
         let secondNewCardIndex =
           Math.floor(Math.random() * (maxIndex - minIndex + 1)) + minIndex;
-        console.log(firstNewCardIndex, secondNewCardIndex);
         return (
           <React.Fragment>
             <Card index={firstNewCardIndex} type={type} />
