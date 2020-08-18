@@ -46,6 +46,13 @@ class PlayerDeck extends Component {
       );
       // create new card and call action to update hand
     }
+    if (turn === 1) {
+      return (
+        <div>
+          <Hand />
+        </div>
+      );
+    }
     return <div>{step > 0 ? <div></div> : null}</div>;
   }
 }
