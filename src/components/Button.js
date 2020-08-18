@@ -33,6 +33,7 @@ class Button extends Component {
   handleStay = (event) => {
     if (event.target.value === "stay") {
       this.setState({ disableButton: true });
+      this.props.incrementStep();
       this.props.turnDealer();
     }
   };

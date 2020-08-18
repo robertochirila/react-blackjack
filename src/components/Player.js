@@ -8,30 +8,20 @@ import { connect } from "react-redux";
 
 class Player extends Component {
   render() {
-    const { type, deck, turn, playerScore, dealerScore } = this.props;
+    const { type, deck, turn, playerScore, dealerScore, step } = this.props;
     return (
       <div>
         {type === "player" ? (
           <React.Fragment>
             <h3>{type}</h3>
             <h3>{playerScore}</h3>
-            <PlayerDeck
-              type={"player"}
-              type={"player"}
-              deck={deck}
-              key={this.props.step}
-            />
+            <PlayerDeck type={"player"} deck={deck} key={this.props.step} />
           </React.Fragment>
         ) : (
           <React.Fragment>
             <h3>{type}</h3>
             <h3>{dealerScore}</h3>
-            <DealerDeck
-              type={"dealer"}
-              type={"dealer"}
-              deck={deck}
-              key={this.props.step}
-            />
+            <DealerDeck type={"dealer"} deck={deck} key={this.props.step} />
           </React.Fragment>
         )}
       </div>
