@@ -4,6 +4,11 @@ import { shuffleDeck } from "../actions/shuffleDeck";
 import { incrementStep } from "../actions/incrementStep";
 import { turnPlayer } from "../actions/turnStep";
 import { turnDealer } from "../actions/turnStep";
+import { resetGame } from "../actions/resetGame";
+import { resetPlayerScore } from "../actions/resetScores";
+import { resetDealerScore } from "../actions/resetScores";
+import { resetPlayerHand } from "../actions/resetHands";
+import { resetDealerHand } from "../actions/resetHands";
 
 class Button extends Component {
   constructor(props) {
@@ -31,6 +36,18 @@ class Button extends Component {
       this.props.turnDealer();
     }
   };
+  handleReset = (event) => {
+    if (event.target.value === "reset") {
+      const { deck } = this.props;
+      // call the actions that resets the game
+      this.props.shuffleDeck(deck);
+      this.props.resetGame();
+      this.props.resetPlayerScore();
+      this.props.resetDealerScore();
+      this.props.resetDealerHand();
+      this.props.resetPlayerHand();
+    }
+  };
   render() {
     const { type, playerScore, dealerScore } = this.props;
     const { disableButton } = this.state;
@@ -47,6 +64,8 @@ class Button extends Component {
               ? this.handleHit
               : type === "stay"
               ? this.handleStay
+              : type === "reset"
+              ? this.handleReset
               : null
           }
           className="button"
@@ -80,4 +99,9 @@ export default connect(mapStateToProps, {
   incrementStep,
   turnPlayer,
   turnDealer,
+  resetGame,
+  resetDealerScore,
+  resetPlayerScore,
+  resetPlayerHand,
+  resetDealerHand,
 })(Button);
