@@ -4,6 +4,8 @@ import "./index.css";
 import "./styles/Board.css";
 import "./styles/Button.css";
 import "./styles/Card.css";
+import "./styles/Hand.css";
+
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 

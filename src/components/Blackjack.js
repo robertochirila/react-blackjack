@@ -62,6 +62,11 @@ class Blackjack extends Component {
         ) : (
           <Board step={step} winner="dealer" />
         )}
+        {playerScore === 21 ? (
+          <Board step={step} winner="player" />
+        ) : dealerScore === 21 ? (
+          <Board step={step} winner="dealer" />
+        ) : null}
       </div>
     );
   }

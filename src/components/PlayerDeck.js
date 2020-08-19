@@ -27,7 +27,7 @@ class PlayerDeck extends Component {
       deckOfCards.push({ index: firstNewCardIndex, type: { type } });
       deckOfCards.push({ index: secondNewCardIndex, type: { type } });
       return (
-        <div>
+        <div class="hand">
           <Hand deckOfCards={deckOfCards} />
         </div>
       );
@@ -40,7 +40,7 @@ class PlayerDeck extends Component {
       deckOfCards.push({ index: firstNewCardIndex, type: { type } });
       this.props.addCardToHand(deckOfCards);
       return (
-        <div>
+        <div class="hand">
           <Hand deckOfCards={deckOfCards} />
         </div>
       );
@@ -48,7 +48,7 @@ class PlayerDeck extends Component {
     }
     if (turn === 1) {
       return (
-        <div>
+        <div class="hand">
           <Hand />
         </div>
       );
