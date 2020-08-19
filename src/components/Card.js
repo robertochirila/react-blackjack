@@ -14,7 +14,11 @@ class Card extends Component {
       cardPoints = card.points;
     }
     return (
-      <div className={type.type === "dealer" ? "card--unknown" : "card"}>
+      <div
+        className={
+          type.type === "dealer" && index === 1 ? "card--unknown" : "card"
+        }
+      >
         <p>{card.rank}</p>
         <p className="card--points">{card.points}</p>
       </div>

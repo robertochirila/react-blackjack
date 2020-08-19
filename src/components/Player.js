@@ -20,7 +20,7 @@ class Player extends Component {
         ) : (
           <React.Fragment>
             <h3>{type}</h3>
-            <h3>{dealerScore}</h3>
+            <h3>???</h3>
             <DealerDeck type={"dealer"} deck={deck} key={this.props.step} />
           </React.Fragment>
         )}
