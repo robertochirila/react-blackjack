@@ -7,7 +7,6 @@ class Hand extends Component {
   componentDidMount() {
     const { deckOfCards, step } = this.props;
     if (step === 1) {
-      console.log(deckOfCards);
       this.props.addHand(deckOfCards);
     }
   }

@@ -40,7 +40,6 @@ class Button extends Component {
   handleReset = (event) => {
     if (event.target.value === "reset") {
       const { deck } = this.props;
-      // call the actions that resets the game
       this.props.shuffleDeck(deck);
       this.props.resetGame();
       this.props.resetPlayerScore();
@@ -75,11 +74,6 @@ class Button extends Component {
           <div>
             <h4>Your score is: {playerScore}</h4>
             <h4>Dealer score is: {dealerScore}</h4>
-            {playerScore > dealerScore ? (
-              <p>Congratulations you won !</p>
-            ) : (
-              <p>You lost, long live the dealer !</p>
-            )}
           </div>
         ) : null}
       </React.Fragment>

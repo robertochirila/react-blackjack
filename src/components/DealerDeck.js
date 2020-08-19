@@ -21,7 +21,7 @@ class DealerDeck extends Component {
       deckOfCards.push({ index: firstNewCardIndex, type: { type } });
       deckOfCards.push({ index: secondNewCardIndex, type: { type } });
       return (
-        <div>
+        <div class="hand">
           <DealerHand deckOfCards={deckOfCards} />
         </div>
       );
@@ -34,14 +34,14 @@ class DealerDeck extends Component {
       deckOfCards.push({ index: firstNewCardIndex, type: { type } });
       this.props.addCardToHand(deckOfCards);
       return (
-        <div>
+        <div class="hand">
           <DealerHand deckOfCards={deckOfCards} />
         </div>
       );
     }
     if (turn === 0) {
       return (
-        <div>
+        <div class="hand">
           <DealerHand />
         </div>
       );
