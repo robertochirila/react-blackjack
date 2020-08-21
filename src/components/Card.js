@@ -44,6 +44,8 @@ class Card extends Component {
           </div>
         </div>
         {card.points}
+        <p>{card.rank}</p>
+        <p className="card--points">{card.points}</p>
       </div>
     );
   }
