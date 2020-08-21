@@ -19,6 +19,31 @@ class Card extends Component {
           type.type === "dealer" && index === 1 ? "card--unknown" : "card"
         }
       >
+        <div className="card--row">
+          <div className="col-2">
+            <p className="card--rank" id="left">
+              {card.rank}
+            </p>
+          </div>
+          <div className="col-2">
+            <p className="card--rank" id="right">
+              {card.rank}
+            </p>
+          </div>
+        </div>
+        <div className="card--row">
+          <div className="col-2">
+            <p className="card--rank" id="bottomLeft">
+              {card.rank}
+            </p>
+          </div>
+          <div className="col-2">
+            <p className="card--rank" id="bottomRight">
+              {card.rank}
+            </p>
+          </div>
+        </div>
+        {card.points}
         <p>{card.rank}</p>
         <p className="card--points">{card.points}</p>
       </div>

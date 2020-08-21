@@ -7,6 +7,9 @@
   float: left;
 }
 
+.card--row {
+}
+
 .card--unknown {
   border: 1px solid;
   width: 20%;
@@ -18,4 +21,13 @@
 
 .card--unknown > p {
   color: green;
+}
+
+#left {
+}
+#right {
+}
+#bottomLeft {
+}
+#bottomRight {
 }
