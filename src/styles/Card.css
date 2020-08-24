@@ -19,7 +19,7 @@
   float: left;
 }
 
-.card--unknown > p {
+.card--unknown > div {
   color: green;
 }
 

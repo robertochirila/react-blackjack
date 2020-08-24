@@ -5,7 +5,7 @@ import { incrementDealerScore } from "../actions/incrementDealerScore";
 
 class Card extends Component {
   render() {
-    const { index, deck, type, step } = this.props;
+    const { index, deck, type, turn, nr } = this.props;
     var card, cardPoints;
     card = deck[index];
     if (type === "player") {
@@ -16,7 +16,7 @@ class Card extends Component {
     return (
       <div
         className={
-          type.type === "dealer" && index === 1 ? "card--unknown" : "card"
+          type.type === "dealer" && nr === 2 ? "card--unknown" : "card"
         }
       >
         <div className="card--row">
@@ -43,9 +43,6 @@ class Card extends Component {
             </p>
           </div>
         </div>
-        {card.points}
-        <p>{card.rank}</p>
-        <p className="card--points">{card.points}</p>
       </div>
     );
   }
@@ -54,6 +51,7 @@ class Card extends Component {
 const mapStateToProps = (state) => ({
   deck: state.deck.deck,
   step: state.step.step,
+  turn: state.step.turn,
 });
 
 export default connect(mapStateToProps, {
