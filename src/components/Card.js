@@ -16,9 +16,7 @@ class Card extends Component {
     return (
       <div
         className={
-          type.type === "dealer" && nr === 2 && turn === "dealer"
-            ? "card--unknown"
-            : "card"
+          type.type === "dealer" && nr === 2 ? "card--unknown" : "card"
         }
       >
         <div className="card--row">
@@ -45,7 +43,6 @@ class Card extends Component {
             </p>
           </div>
         </div>
-        {card.points}
       </div>
     );
   }

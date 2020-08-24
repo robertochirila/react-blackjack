@@ -29,10 +29,12 @@ class Board extends Component {
               </div>
               {winner === "dealer" ? (
                 <div>
+                  <p>You lost !</p>
                   <Button type="reset" />
                 </div>
               ) : winner === "player" ? (
                 <div>
+                  <p>Congratulations you won !</p>
                   <Button type="reset" />
                 </div>
               ) : null}

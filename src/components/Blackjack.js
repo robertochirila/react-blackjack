@@ -52,10 +52,10 @@ class Blackjack extends Component {
   }
 
   render() {
-    const { step, playerScore, dealerScore } = this.props;
+    const { step, playerScore, dealerScore, gameOver } = this.props;
     return (
       <div>
-        {playerScore < 22 && dealerScore < 22 ? (
+        {playerScore < 22 && dealerScore < 22 && gameOver === false ? (
           <Board step={step} />
         ) : dealerScore > 22 ? (
           <Board step={step} winner="player" />
@@ -67,6 +67,13 @@ class Blackjack extends Component {
         ) : dealerScore === 21 ? (
           <Board step={step} winner="dealer" />
         ) : null}
+        {/*playerScore < 22 && dealerScore < 22 && gameOver === true ? (
+          playerScore > dealerScore ? (
+            <Board step={step} winner="player" />
+          ) : (
+            <Board step={step} winner="dealer" />
+          )
+          ) : null*/}
       </div>
     );
   }
@@ -78,6 +85,7 @@ const mapStateToProps = (state) => ({
   flag: state.deck.flag,
   playerScore: state.player.playerScore,
   dealerScore: state.dealer.dealerScore,
+  gameOver: state.step.gameOver,
 });
 
 export default connect(mapStateToProps, { addDeck })(Blackjack);

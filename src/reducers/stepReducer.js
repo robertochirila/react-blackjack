@@ -6,6 +6,7 @@ import { RESET_GAME } from "../actions/types";
 const initialState = {
   step: 0,
   turn: 1,
+  gameOver: false,
 };
 
 export default function (state = initialState, action) {
@@ -19,6 +20,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         turn: 1,
+        gameOver: true,
       };
     case TURN_STEP_PLAYER:
       return {
