@@ -24,7 +24,7 @@ class DealerHand extends Component {
     } else if (step > 1) {
       return dealerHand.map((entries, index) => {
         return entries.map((card, index) => {
-          return <Card index={card.index} type={card.type} key={index} />;
+          return <Card index={index} type={card.type} key={index} />;
         });
       });
     }
